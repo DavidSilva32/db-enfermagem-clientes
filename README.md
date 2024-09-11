@@ -17,7 +17,7 @@ O banco de dados possui quatro tabelas principais:
 
 ## Instalação
 ### Requisitos
-- MySQL ou outro SGBD compatível.
+- PostgreSQL ou outro SGBD compatível.
 
 ### Como instalar
 1. Clone o repositório:
@@ -33,13 +33,13 @@ O banco de dados possui quatro tabelas principais:
 ## Exemplo de Uso
 - **Adicionar um novo paciente:**
     ```bash
-    INSERT INTO Paciente (Nome, Idade, Endereço, Telefone)
+    INSERT INTO PACIENTE (nome, idade, endereco, telefone)
     VALUES ('João Silva', 45, 'Rua das Flores, 123', '11-98765-4321');
     ```
 - **Consultar medicamentos administrados:**
     ```bash
-    SELECT (Paciente.Nome, Medicamento.Nome_Medicamento, Administração.Data_Adm, Administração.Horário)
-    FROM Administração
-    JOIN Paciente ON (Administração.ID_Paciente = Paciente.ID_Paciente)
-    JOIN Medicamento ON (Administração.ID_Medicamento = Medicamento.ID_Medicamento);
+    SELECT PACIENTE.nome, MEDICAMENTO.nome_medicamento, ADMINISTRACAO.data_adm, ADMINISTRACAO.horario, ADMINISTRACAO.observacoes
+    FROM ADMINISTRACAO
+    JOIN PACIENTE ON ADMINISTRACAO.id_paciente = PACIENTE.id_paciente
+    JOIN MEDICAMENTO ON ADMINISTRACAO.id_medicamento = MEDICAMENTO.id_medicamento;
     ```
