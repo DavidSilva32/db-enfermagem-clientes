@@ -33,5 +33,7 @@ CREATE TABLE SALARIO (
   id_salario SERIAL PRIMARY KEY,
   mes VARCHAR(20),
   valor DECIMAL(10,2),
-  observacoes TEXT
+  observacoes TEXT,
+  id_paciente INT,
+  FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente)
 );
